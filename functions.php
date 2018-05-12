@@ -41,6 +41,7 @@ function setFunction($UID, $Function){
 		$functions = getFunction($UID);
 		if($functions == ""){
 			$statement="UPDATE slaves SET Function='$Function' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
+			echo $statement;
 			$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 		} else {
 
