@@ -8,6 +8,7 @@ if(empty($_POST['username'])) {
   header( 'Location: index.php?error=user' ) ;
   die();
 }
+
 if(empty($_POST['password'])) {
   header( 'Location: index.php?error=pass' ) ;
   die();
@@ -16,6 +17,7 @@ if(empty($_POST['password'])) {
 $inputpass = hash('whirlpool', $_POST['password']);
 
 if ($_POST['username'] == $username AND $inputpass == $password) {
+  
   $supercode = hash('whirlpool', $_POST['username'] . $inputpass);
 
   session_start();

@@ -35,13 +35,19 @@ function slave_exists($UID) {
 }
 
 function setFunction($UID, $Function){
+
 	$UID = sanitize($UID);
+
 	$Function = sanitize($Function);
+
 	if(slave_exists($UID)){
 		$functions = getFunction($UID);
 		if($functions == ""){
+
 			$statement="UPDATE slaves SET Function='$Function' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
+    
 			$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+
 		} else {
 
 			$functions = $functions . ", " . $Function;
