@@ -10,4 +10,8 @@ $offlineminutes="5";
 $timezonesetting="GMT+08:45";
 $autoscrolltextbox="yes";
 
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 90797c3adb6f1cca11ae6ccf58b90c7a4b2f833d
