@@ -15,6 +15,7 @@
   }
   
 session_start();
+
 if (isset($_SESSION['code'])) {
    header( 'Location: control.php' ) ;
 }
@@ -63,6 +64,7 @@ if (isset($_SESSION['code'])) {
   <body>
     <div class="loginform">
 	  <form class="form-horizontal" action='login.php' method='post' accept-charset='UTF-8'>
+
 	    <div class="<?php if(isset($_GET['error'])){ echo 'has-error'; } ?>"><input type="text" class="form-control" id="username" name="username" placeholder="Username"></div>
 		<br />
 		  <div class="<?php if(isset($_GET['error'])){ echo 'has-error'; } ?>"><input type="password" class="form-control" id="password" name="password" placeholder="Password"></div>
