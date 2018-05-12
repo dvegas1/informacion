@@ -1,5 +1,5 @@
 <?php
-$allowedDomains = array("https://telohago.herokuapp.com\informacion", "https://telohago.herokuapp.com\informacion");
+$allowedDomains = array("https://informacion.herokuapp.com", "https://informacion.herokuapp.com");
 
 if (in_array($_SERVER['HTTP_HOST'], $allowedDomains)) {
 	$validDomain = "true";

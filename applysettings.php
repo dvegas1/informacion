@@ -1,5 +1,5 @@
 <?php
-$url = "https://telohago.herokuapp.com\informacion";
+$url = "https://informacion.herokuapp.com";
 
 include("functions.php");
 
