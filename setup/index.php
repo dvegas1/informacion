@@ -10,8 +10,9 @@
   
 if (file_exists("../config.php")) {
   header('Location: ../control.php');
-  die();
-}
+  die(); }
+
+
 ?>
 <!DOCTYPE html>
 <html>
