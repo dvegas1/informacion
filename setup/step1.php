@@ -1,9 +1,11 @@
 <?php
   if (file_exists("../reg.php")) {
     include("../reg.php");
+
 	if ($validDomain == "false") {
 	  die("Unauthorized Domain: Please contact support.");
 	}
+
   } else {
     die("Missing Files: Please contact support.");
   }
@@ -12,6 +14,7 @@ if (file_exists("../config.php")) {
   header('Location: ../control.php');
   die();
 }
+
 ?>
 <!DOCTYPE html>
 <html>

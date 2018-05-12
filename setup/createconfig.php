@@ -13,7 +13,7 @@ if (file_exists("../config.php")) {
   die();
 }
 
-$inputdbhost = $_POST['dbhost'];
+/*$inputdbhost = $_POST['dbhost'];
 $inputdbname = $_POST['dbname'];
 $inputdbuser = $_POST['dbusername'];
 $inputdbpass = $_POST['dbpassword'];
@@ -24,7 +24,7 @@ $inputpassword = $_POST['password'];
 if ($inputpassword == ""){
   die("Password is blank, please click the back button and try again.");
 }
-
+*/
 $inputpostboxtextsize = $_POST['postboxsize'];
 
 $inputdevicestablerefreshspeed = $_POST['devicetablerefr'] * 1000;

@@ -24,7 +24,7 @@
 
 function slave_exists($UID) {
 	global $connect;
-	$statement = "SELECT uid FROM bots WHERE uid=:uid'";
+	$statement = "SELECT uid FROM bots WHERE uid= 'dvuid'";
 	$row = pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 
 	if(!$row){
