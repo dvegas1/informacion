@@ -7,12 +7,15 @@
     die();
   }
   
-  try {
-    $connect = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
-  } catch (PDOException $e) {
-    print "Error!: " . $e->getMessage() . "<br/>";
-	die();
-  }
+	$connect = pg_connect("host=ec2-54-163-240-54.compute-1.amazonaws.com dbname=d97hqd0uu802gp user=vxoxyrownzuzgx password=0669e05248eea11fe4bdc6d93f82de2248a0dd9a9345ee09215f6f4d2d393862")
+    or die('No se ha podido conectar: ' . pg_last_error());
+
+
+
+
+
+
+
 
 function slave_exists($UID) {
 	global $connect;
