@@ -20,6 +20,9 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 }
 echo "</table>\n";
 
+    $QUERYINSERT= "INSERT INTO 'bots' ('uid', 'device', 'version', 'lati', 'longi', 'provider', 'phone', 'sdk', 'random') VALUES ('ide1', 'DASD', '5.5', '1.0', '$Longi', '1.0', '54546546546', '9.5', '555')");
+	$result = pg_query($QUERYINSERT) or die('La consulta fallo: ' . pg_last_error());
+
 // Liberando el conjunto de resultados
 pg_free_result($result);
 
