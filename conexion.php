@@ -13,7 +13,7 @@ $connect = pg_connect("host=ec2-54-163-240-54.compute-1.amazonaws.com port=5432 
 
 // Imprimiendo los resultados en HTML
 echo "<table>\n";
-while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+while ($line = pg_fetch_array($query, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
     foreach ($line as $col_value) {
         echo "\t\t<td>$col_value</td>\n";
