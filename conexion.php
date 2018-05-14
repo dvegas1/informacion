@@ -23,7 +23,7 @@ if (!$result) {
 
 while ($row = pg_fetch_row($result)) {
   echo "bots: $row[0] 
-  echo "<br />\n";
+  echo "<br/>\n";
 }
 
 // Liberando el conjunto de resultados
