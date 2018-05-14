@@ -11,7 +11,7 @@ $query = 'select * from bots order by id';
   $dbuser="vxoxyrownzuzgx";
   $dbpass="0669e05248eea11fe4bdc6d93f82de2248a0dd9a9345ee09215f6f4d2d393862";
 
-$dbconn = pg_connect($host $dbname $dbuser $dbpass) or die('No se ha podido conectar: ' . pg_last_error());
+$dbconn = pg_connect($host;$dbname;$dbuser;$dbpass) or die('No se ha podido conectar: ' . pg_last_error());
 
 // Imprimiendo los resultados en HTML
 echo "<table>\n";
