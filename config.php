@@ -1,13 +1,15 @@
 <?php
-
-$username="dvegas";
-$password="Tebca2045+";
-$postboxtextsize="1";
-$devicestablerefreshspeed=5 * 1000;
-$filestablerefreshspeed=5 * 1000;
-$messageboxrefreshspeed=5 * 1000;
-$offlineminutes="5";
-$timezonesetting="GMT+08:45";
-$autoscrolltextbox="yes";
-
+$dbhost='ec2-54-163-240-54.compute-1.amazonaws.com';
+$dbname='d97hqd0uu802gp';
+$dbuser='vxoxyrownzuzgx';
+$dbpass='0669e05248eea11fe4bdc6d93f82de2248a0dd9a9345ee09215f6f4d2d393862';
+$username='dvegas';
+$password='d5ee06ed98b054782b0479f68431df37012daa4a2c7c0fa31cef3c3a1ffc0547482a6c97b111db11c538482d012de91a0498222ef78d868d4dacaed17175a7ac';
+$postboxtextsize=10;
+$devicestablerefreshspeed=5000;
+$filestablerefreshspeed=5000;
+$messageboxrefreshspeed=5000;
+$offlineminutes=1;
+$timezonesetting='Pacific/Midway';
+$autoscrolltextbox=true;
 ?>
