@@ -22,7 +22,7 @@ if (!$result) {
 }
 
 while ($row = pg_fetch_row($result)) {
-  echo "bots: $row[0] 
+  echo $row[0];
   echo "<br/>\n";
 }
 
