@@ -92,7 +92,7 @@ function addToUploads($owner, $slave, $file){
 	if(slave_exists($slave)){
       if(file_exists("dlfiles/" . $file)){
 	    global $connect;
-        $statement = "INSERT INTO 'files' ('uid', 'file') VALUES ('$slave', '$file')");
+        $statement = ("INSERT INTO 'files' ('uid', 'file') VALUES ('$slave', '$file')");
         $statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
       }
 	}
