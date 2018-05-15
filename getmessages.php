@@ -21,7 +21,7 @@ if($_GET['uid']!=""){
 
 //$result=pg_query($connect,$mycommand);
 
- 	$Result = pg_query($connect,$getslaves);
+ 	$Result = pg_query($connect,$mycommand);
 
  	if(is_array($Result)){ 		
 
