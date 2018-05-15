@@ -7,7 +7,7 @@
   
   include("functions.php");
   
-  $getslaves = 'SELECT * FROM files';
+  $getslaves = "SELECT * FROM files";
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,7 +49,7 @@
 	</thead>
 	<tbody>
   <?php 
-  foreach ($connect->query($getslaves) as $row) {
+  foreach (pg_query($connect,$getslaves) as $row) {
     $file = preg_replace("#\{(.*)\}#", "", $row['file']);
 	echo '<tr><td>' . $row['uid'] . '</td>';
 	echo '<td>' . $file . '</td>';
