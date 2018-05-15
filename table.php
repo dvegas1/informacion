@@ -9,7 +9,7 @@
   
   include("functions.php");
   
-  $getslaves = 'SELECT * FROM bots ORDER BY id';
+  $getslaves = "SELECT * FROM bots ORDER BY id";
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,6 +92,7 @@
 			</tr>
 	</thead>
 	<tbody>
+
   <?php foreach (pg_query($connect,$getslaves) as $row) {
     $today = time();
 	$origdate = strtotime($row['update']);
