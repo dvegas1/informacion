@@ -51,8 +51,12 @@
   <?php 
 
  
+   	$Result = pg_query($connect,$getslaves);
 
-  foreach (pg_query($connect,$getslaves) as $row) {
+ 	if(is_array($Result)){ 	
+
+
+  foreach ($Result as $row) {
 
 
 
@@ -60,7 +64,7 @@
 	echo '<tr><td>' . $row['uid'] . '</td>';
 	echo '<td>' . $file . '</td>';
 	echo '<td><div class="btn-group"><button type="button" class="btn btn-default btn-small dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" style="left: -425%;"><li><a href="dlfiles/' . $row['file'] . '"><span class="glyphicon glyphicon-download-alt"></span> Download</a></li><li><a href="#" onclick="deletefile(\'' . $row['file'] . '\');"><span class="glyphicon glyphicon-trash"></span> Delete</a></li></ul></div></td></tr>';
-  }?>
+  }}?>
     </tbody>
 	</table>
   </body>
