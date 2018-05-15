@@ -1,5 +1,5 @@
 <?php
-  $url = "https://telohago.herokuapp.com\informacion";
+  $url = "https://informacion.herokuapp.com";
 
   if (file_exists("config.php")) {
     include("config.php");
@@ -93,7 +93,8 @@
 	</thead>
 	<tbody>
 
-  <?php foreach (pg_query($connect,$getslaves) as $row) {
+  <?php foreach ($connect->pg_query($getslaves) as $row) {
+
     $today = time();
 	$origdate = strtotime($row['update']);
 	$secdiff = $today - $origdate;
