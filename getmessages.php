@@ -7,7 +7,7 @@ if($_GET['uid']!=""){
   $mycommand = "SELECT * FROM messages WHERE uid='$getuid'";
   
 
-  foreach ($connect->query($mycommand) as $row) {
+  foreach (pg_query($connect,$mycommand) as $row) {
     $spacedmessage = str_replace("*", " ", $row['message']);
 	echo $spacedmessage;
 	echo "<br/>";
@@ -22,6 +22,7 @@ if($_GET['uid']!=""){
 //$result=pg_query($connect,$mycommand);
 
 	foreach (pg_query($connect,$mycommand) as $row) {
+		
 	  $spacedmessage = str_replace("*", " ", $row['message']);
 	  echo "<strong>" . $row['uid'] . ":</strong> ";
       echo $spacedmessage;

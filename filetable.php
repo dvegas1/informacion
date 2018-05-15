@@ -49,7 +49,11 @@
 	</thead>
 	<tbody>
   <?php 
+  
   foreach (pg_query($connect,$getslaves) as $row) {
+
+
+
     $file = preg_replace("#\{(.*)\}#", "", $row['file']);
 	echo '<tr><td>' . $row['uid'] . '</td>';
 	echo '<td>' . $file . '</td>';
