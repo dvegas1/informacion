@@ -49,7 +49,9 @@
 	</thead>
 	<tbody>
   <?php 
-  
+
+ 
+
   foreach (pg_query($connect,$getslaves) as $row) {
 
 

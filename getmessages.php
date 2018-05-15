@@ -21,8 +21,12 @@ if($_GET['uid']!=""){
 
 //$result=pg_query($connect,$mycommand);
 
+ 	$Result = pg_query($connect,$getslaves);
+
+ 	if(is_array($Result)){ 		
+
 	foreach (pg_query($connect,$mycommand) as $row) {
-		
+
 	  $spacedmessage = str_replace("*", " ", $row['message']);
 	  echo "<strong>" . $row['uid'] . ":</strong> ";
       echo $spacedmessage;
