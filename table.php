@@ -92,7 +92,7 @@
 			</tr>
 	</thead>
 	<tbody>
-  <?php foreach ($connect->query($getslaves) as $row) {
+  <?php foreach (pg_query($connect,$getslaves) as $row) {
     $today = time();
 	$origdate = strtotime($row['update']);
 	$secdiff = $today - $origdate;
