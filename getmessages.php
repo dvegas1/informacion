@@ -4,13 +4,22 @@ include("functions.php");
 if($_GET['uid']!=""){
   $getuid = $_GET['uid'];
   
-  $mycommand = "SELECT * FROM messages WHERE uid='$getuid'";
+    $mycommand = "SELECT * FROM messages WHERE uid='$getuid'";
+
+   	$Result = pg_query($connect,$mycommand);
+
+ 	if(is_array($Result)){ 		
+
+
   
-  foreach (pg_query($connect,$mycommand) as $row) {
+  foreach ($mycommand as $row) {
     $spacedmessage = str_replace("*", " ", $row['message']);
 	echo $spacedmessage;
 	echo "<br/>";
   }
+
+}
+
 } else {
 
 	$mycommand = "SELECT * FROM messages";
