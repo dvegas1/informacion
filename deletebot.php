@@ -16,8 +16,8 @@
   }
   
   echo $botid;
+  
+  $statement = pg_query($connect,"DELETE FROM bots WHERE uid='$botid'");
 
-  $statement = $connect->prepare("DELETE FROM bots WHERE uid='$botid'");
-  $statement->execute();
   echo "Bot Deleted";
 ?>

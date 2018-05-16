@@ -23,7 +23,7 @@ if (!$connect) {
 function slave_exists($UID) {
 	global $connect;
 	$statement = "SELECT uid FROM bots WHERE uid= 'dvuid'";
-	$row = pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+	$row = pg_query($connect,$statement) or die('La consulta fallo: ' . pg_last_error());
 
 	if(!$row){
 	  return false;
@@ -43,15 +43,16 @@ function setFunction($UID, $Function){
 		if($functions == ""){
 
 			$statement=("UPDATE slaves SET Function='$Function' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
-    
-			$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+
+
+			$statement1=pg_query($connect,$statement) or die('La consulta fallo: ' . pg_last_error());
 
 		} else {
 
 			$functions = $functions . ", " . $Function;
 
 			$statement=("UPDATE slaves SET Function='$functions' WHERE 'Unique_ID' = '$UID'") or die('La consulta fallo: ' . pg_last_error());
-			$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+			$statement1=pg_query($connect,$statement) or die('La consulta fallo: ' . pg_last_error());
 
 		}
 	}
@@ -68,7 +69,7 @@ function updateSlave($UID, $Device, $Version, $Coordinates, $Provider, $PhoneNum
   
   if (slave_exists($UID)){
 	$statement ="UPDATE bots SET device='$Device', version='$Version', lati='$Lati', longi='$Longi', provider='$Provider', phone='$PhoneNumber', sdk='$SDK', random='$Random' WHERE 'uid' = '$UID'";
-	$statement1=pg_query($statement) or die('La consulta fallo: ' . pg_last_error());
+	$statement1=pg_query($connect,$statement) or die('La consulta fallo: ' . pg_last_error());
 
 
 

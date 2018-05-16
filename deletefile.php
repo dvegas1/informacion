@@ -19,8 +19,10 @@
   
   if (is_readable($path . '/' . $filename)) {
     unlink($path . '/' . $filename);
-	$statement = $connect->prepare("DELETE FROM files WHERE file='$filename'");
-	$statement->execute();
+
+  $statement = pg_query($connect,"DELETE FROM files WHERE file='$filename'");
+
+
 	echo "Deleted";
   } else {
     die();

@@ -15,20 +15,21 @@
     die();
   }
   
-  $statement = $connect->prepare("SELECT blocked FROM bots WHERE uid='$botid'");
-  $statement->execute();
+  $statement = pg_query($connect,"SELECT blocked FROM bots WHERE uid='$botid'");
   
   $result = $statement->fetch(PDO::FETCH_ASSOC);
   
   $curblocked = $result[blocked];
   
   if($curblocked == "yes"){
-    $statement = $connect->prepare("UPDATE bots SET blocked='no' WHERE `uid` = '$botid'");
+    $statement = pg_query($connect,"UPDATE bots SET blocked='no' WHERE `uid` = '$botid'");
+
     $statement->execute();
     echo "Bot History Unblocked";
   } else {
-    $statement = $connect->prepare("UPDATE bots SET blocked='yes' WHERE `uid` = '$botid'");
-    $statement->execute();
+
+    $statement = pg_query($connect,"UPDATE bots SET blocked='yes' WHERE 'uid' = '$botid'");
+
 	echo "Bot History Blocked";
   }
 ?>

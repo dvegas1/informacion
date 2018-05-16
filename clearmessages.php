@@ -15,7 +15,8 @@ if (empty($_SESSION['code'])) {
 
 include("functions.php");
 
-$statement = $connect->prepare("TRUNCATE TABLE messages");
-$statement->execute();header('Location: settings.php');
+ $result = pg_query($connect,"TRUNCATE TABLE messages");
+ 
+ header('Location: settings.php');
 
 ?>
