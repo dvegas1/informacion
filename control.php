@@ -22,7 +22,7 @@
   
   include("functions.php");
   
-  $getslaves = 'SELECT * FROM bots ORDER BY id';
+  $getslaves = 'select * from bots order by id';
   
 ?>
 <!DOCTYPE html>
